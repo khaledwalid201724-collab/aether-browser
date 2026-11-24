@@ -1,0 +1,3 @@
+# GitHub cannot store files over 100 MB. The AppImage is published as a
+# Release asset instead; keep the local copy out of the Pages repo.
+/downloads/Aether-x86_64.AppImage

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Extension downloads — Aether Store</title>
+  <link rel="icon" href="../../assets/aether-64.png">
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+  <div class="aurora"></div>
+  <header class="nav">
+    <a class="brand" href="../../index.html"><img src="../../assets/aether-64.png" alt="" width="30" height="30"><span>Aether</span></a>
+    <nav><a href="../../store.html">Store</a><a href="../index.html">Downloads</a></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="pill">EXTENSION PACKAGES</div>
+      <h1>Aether <span>extensions.</span></h1>
+      <p class="lead">Standard MV3 extensions. Unzip and load with Developer mode, or enable them from the Store inside Aether.</p>
+    </section>
+    <section class="section">
+      <div class="features" id="list"></div>
+    </section>
+  </main>
+  <footer><span>© 2026 The Aether Project.</span><span><a href="../../store.html">Back to store</a></span></footer>
+  <script>
+    const names = {
+      "aether-block": "Aether Shield",
+      "aether-tabs": "Aether Vertical Tabs",
+      "aether-controls": "Aether Controls",
+      "aether-spotlight": "Aether Spotlight",
+      "aether-canvas": "Aether Canvas"
+    };
+    const list = document.getElementById("list");
+    Object.entries(names).forEach(([id, name]) => {
+      const a = document.createElement("article");
+      a.innerHTML = `<h3>${name}</h3><p><a class="dl" href="${id}.zip" download>⬇ ${id}.zip</a></p>`;
+      list.appendChild(a);
+    });
+  </script>
+</body>
+</html>
