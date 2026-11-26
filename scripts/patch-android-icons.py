@@ -9,7 +9,11 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
-LOGO = ROOT / "site/assets/aether-256.png"
+LOGO_CANDIDATES = (
+    ROOT / "site/assets/aether-256.png",
+    ROOT / "assets/aether-256.png",
+)
+LOGO = next((path for path in LOGO_CANDIDATES if path.is_file()), LOGO_CANDIDATES[0])
 
 # resource path -> pixel size, taken from `aapt2 dump resources` on the
 # upstream ChromePublic.apk.
