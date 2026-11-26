@@ -63,10 +63,10 @@ jobs:
       - name: Generate checksums
         run: |
           set -euo pipefail
-          grep 'Aether-x86_64.AppImage' site/downloads/SHA256SUMS > /tmp/appimage-sum
+          grep 'Aether-x86_64.AppImage' downloads/SHA256SUMS > /tmp/appimage-sum
           (cd dist && sha256sum Aether-Android-*.apk > /tmp/apk-sums)
-          cat /tmp/appimage-sum /tmp/apk-sums > site/downloads/SHA256SUMS
-          cat site/downloads/SHA256SUMS
+          cat /tmp/appimage-sum /tmp/apk-sums > downloads/SHA256SUMS
+          cat downloads/SHA256SUMS
 
       - name: Upload release assets
         run: |
@@ -76,7 +76,7 @@ jobs:
             dist/Aether-Android-armeabi-v7a.apk \
             dist/Aether-Android-arm64.apk \
             dist/Aether-Android-x86_64.apk \
-            site/downloads/SHA256SUMS \
+            downloads/SHA256SUMS \
             --repo "$REPO" --clobber
 
       - name: Update website checksums
@@ -84,7 +84,7 @@ jobs:
           set -euo pipefail
           git config user.name "Aether Project"
           git config user.email "noreply@aether-browser.com"
-          git add site/downloads/SHA256SUMS
+          git add downloads/SHA256SUMS
           if ! git diff --cached --quiet; then
             git commit -m "Update Android APK checksums"
             git push
