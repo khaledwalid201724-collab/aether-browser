@@ -63,9 +63,9 @@ jobs:
       - name: Generate checksums
         run: |
           set -euo pipefail
-          grep 'Aether-x86_64.AppImage' downloads/SHA256SUMS > /tmp/appimage-sum
+          grep -v 'Aether-Android-' downloads/SHA256SUMS > /tmp/sums-base || true
           (cd dist && sha256sum Aether-Android-*.apk > /tmp/apk-sums)
-          cat /tmp/appimage-sum /tmp/apk-sums > downloads/SHA256SUMS
+          cat /tmp/sums-base /tmp/apk-sums > downloads/SHA256SUMS
           cat downloads/SHA256SUMS
 
       - name: Upload release assets
