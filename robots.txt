@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://khaledwalid201724-collab.github.io/aether-browser/sitemap.xml
