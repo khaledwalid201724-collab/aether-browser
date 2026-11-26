@@ -1,0 +1,89 @@
+{
+  "manifest_version": 3,
+  "name": "Aether Paper",
+  "version": "1.0.0",
+  "description": "The Aether Paper chrome theme for Aether.",
+  "icons": {
+    "48": "icon.png"
+  },
+  "theme": {
+    "colors": {
+      "frame": [
+        238,
+        240,
+        247
+      ],
+      "frame_inactive": [
+        226,
+        229,
+        239
+      ],
+      "toolbar": [
+        238,
+        240,
+        247
+      ],
+      "tab_background_text": [
+        78,
+        84,
+        110
+      ],
+      "tab_text": [
+        28,
+        32,
+        52
+      ],
+      "bookmark_text": [
+        70,
+        76,
+        100
+      ],
+      "omnibox_background": [
+        255,
+        255,
+        255
+      ],
+      "omnibox_text": [
+        28,
+        32,
+        52
+      ],
+      "button_background_hover": [
+        214,
+        218,
+        235
+      ],
+      "button_background_normal": [
+        248,
+        249,
+        253
+      ],
+      "toolbar_button_icon": [
+        70,
+        76,
+        100
+      ],
+      "tab_background_separator": [
+        210,
+        214,
+        228
+      ],
+      "control_track": [
+        210,
+        214,
+        228
+      ],
+      "control_thumb": [
+        109,
+        94,
+        248
+      ]
+    },
+    "images": {
+      "theme_frame": "frame.png",
+      "theme_toolbar": "toolbar.png",
+      "theme_tab_background": "tab.png",
+      "theme_button_background": "button.png"
+    }
+  }
+}

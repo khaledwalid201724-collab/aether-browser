@@ -1,0 +1,89 @@
+{
+  "manifest_version": 3,
+  "name": "Aether Graphite",
+  "version": "1.0.0",
+  "description": "The Aether Graphite chrome theme for Aether.",
+  "icons": {
+    "48": "icon.png"
+  },
+  "theme": {
+    "colors": {
+      "frame": [
+        28,
+        29,
+        32
+      ],
+      "frame_inactive": [
+        23,
+        24,
+        27
+      ],
+      "toolbar": [
+        28,
+        29,
+        32
+      ],
+      "tab_background_text": [
+        176,
+        180,
+        188
+      ],
+      "tab_text": [
+        240,
+        242,
+        246
+      ],
+      "bookmark_text": [
+        188,
+        192,
+        200
+      ],
+      "omnibox_background": [
+        42,
+        44,
+        48
+      ],
+      "omnibox_text": [
+        240,
+        242,
+        246
+      ],
+      "button_background_hover": [
+        70,
+        73,
+        80
+      ],
+      "button_background_normal": [
+        42,
+        44,
+        48
+      ],
+      "toolbar_button_icon": [
+        188,
+        192,
+        200
+      ],
+      "tab_background_separator": [
+        46,
+        48,
+        53
+      ],
+      "control_track": [
+        46,
+        48,
+        53
+      ],
+      "control_thumb": [
+        160,
+        165,
+        175
+      ]
+    },
+    "images": {
+      "theme_frame": "frame.png",
+      "theme_toolbar": "toolbar.png",
+      "theme_tab_background": "tab.png",
+      "theme_button_background": "button.png"
+    }
+  }
+}

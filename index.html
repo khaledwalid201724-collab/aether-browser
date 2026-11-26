@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aether Browser — fast, private, yours</title>
-  <meta name="description" content="Aether is a low-RAM Chromium browser with built-in ad blocking, vertical tabs, a modern start page and its own extension store. Download a single AppImage for Linux.">
-  <meta name="keywords" content="Aether browser, Chromium AppImage, private browser, low RAM browser, Linux browser, Aether Store">
+  <meta name="description" content="Aether is a low-RAM Chromium browser with built-in ad blocking, vertical tabs, a modern start page and its own extension store. Download for Linux, Windows or Android.">
+  <meta name="keywords" content="Aether browser, Chromium browser, private browser, low RAM browser, Linux AppImage, Windows browser, Android APK, Aether Store">
   <meta name="author" content="The Aether Project">
   <meta property="og:title" content="Aether Browser — fast, private, yours">
-  <meta property="og:description" content="A clean Chromium browser in one AppImage. Built-in blocker, vertical tabs, modern dashboard and the Aether Store.">
+  <meta property="og:description" content="A clean Chromium browser for Linux, Windows and Android. Built-in blocker, vertical tabs, modern dashboard and the Aether Store.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/aether-256.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -21,9 +21,9 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Aether Browser",
-    "operatingSystem": "Linux x86_64",
+    "operatingSystem": "Linux x86_64, Windows x86_64, Android",
     "applicationCategory": "WebBrowser",
-    "description": "A fast, private, low-RAM Chromium browser packaged as a single AppImage.",
+    "description": "A fast, private, low-RAM Chromium browser for Linux, Windows and Android.",
     "url": "https://khaledwalid201724-collab.github.io/aether-browser/",
     "downloadUrl": "https://github.com/khaledwalid201724-collab/aether-browser/releases/download/v1.0.0/Aether-x86_64.AppImage",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
@@ -48,11 +48,13 @@
 
   <main>
     <section class="hero">
-      <div class="pill">ONE FILE · NO INSTALLER · NO ACCOUNT</div>
+      <div class="pill">LINUX · WINDOWS · ANDROID · NO ACCOUNT</div>
       <h1>A browser that feels<br><span>like your space.</span></h1>
       <p class="lead">Aether is a Chromium browser tuned for low memory, privacy and a genuinely modern interface. Download it, double-click it, and make it yours.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://github.com/khaledwalid201724-collab/aether-browser/releases/download/v1.0.0/Aether-x86_64.AppImage" download>⬇ Download for Linux <small>x86_64 · AppImage</small></a>
+        <a class="btn btn-ghost" href="https://github.com/khaledwalid201724-collab/aether-browser/releases/download/v1.0.0/Aether-Windows-x86_64.zip" download>⬇ Windows <small>x86_64 · portable ZIP · ~203 MB</small></a>
+        <a class="btn btn-ghost" href="https://github.com/khaledwalid201724-collab/aether-browser/releases/download/v1.0.0/Aether-Windows-x86_64-setup.exe" download>⬇ Windows installer <small>x86_64 · EXE · ~152 MB</small></a>
         <a class="btn btn-ghost" href="https://github.com/khaledwalid201724-collab/aether-browser/releases/download/v1.0.0/Aether-Android-universal.apk" download>⬇ Android <small>Chromium · universal APK · 406 MB</small></a>
         <a class="btn btn-ghost" href="store.html">Browse the Aether Store →</a>
       </div>
@@ -96,26 +98,26 @@
         <span class="kicker">GET STARTED</span>
         <h2>Three steps, about a minute.</h2>
         <ol>
-          <li><b>Download</b> the AppImage above.</li>
-          <li><b>Make it executable</b> — right-click → Properties → Permissions → “Allow executing”, or run <code>chmod +x Aether-x86_64.AppImage</code>.</li>
-          <li><b>Double-click it.</b> Or run <code>aether</code> from a terminal if you installed the launcher.</li>
+          <li><b>Download</b> the file for your platform.</li>
+          <li><b>Linux:</b> make the AppImage executable — right-click → Properties → Permissions → “Allow executing”, or run <code>chmod +x Aether-x86_64.AppImage</code>. <b>Windows:</b> unzip the portable build or run the installer EXE.</li>
+          <li><b>Launch Aether.</b> Linux: double-click the AppImage (or run <code>aether</code>). Windows portable: double-click <code>Aether.vbs</code>. Windows installed: use the desktop shortcut.</li>
         </ol>
-        <p class="small">Needs FUSE on the host. If AppImages won't start, run with <code>APPIMAGE_EXTRACT_AND_RUN=1</code>.</p>
+        <p class="small">Linux needs FUSE; if AppImages won't start, run with <code>APPIMAGE_EXTRACT_AND_RUN=1</code>. Windows builds need Windows 10/11 x86_64 and no administrator rights for the installer.</p>
       </div>
       <div class="install-card">
-        <div class="row"><span>Version</span><b>160.0.8183.0</b></div>
+        <div class="row"><span>Version</span><b>Linux 160.0.8183.0 · Windows/Android 160.0.8185.0</b></div>
         <div class="row"><span>Architecture</span><b>x86_64</b></div>
-        <div class="row"><span>Format</span><b>AppImage · ~211 MB</b></div>
-        <div class="row"><span>Profile</span><b>~/.config/aether</b></div>
+        <div class="row"><span>Format</span><b>Linux AppImage · ~211 MB · Windows ZIP ~203 MB / EXE ~152 MB</b></div>
+        <div class="row"><span>Profile</span><b>Linux ~/.config/aether · Windows Aether folder\User Data</b></div>
         <div class="row"><span>License</span><b>Open source</b></div>
-        <a class="btn btn-primary wide" href="https://github.com/khaledwalid201724-collab/aether-browser/releases/download/v1.0.0/Aether-x86_64.AppImage" download>Download Aether ⬇</a>
+        <a class="btn btn-primary wide" href="downloads/">Choose your download ⬇</a>
         <a class="checksum" href="https://github.com/khaledwalid201724-collab/aether-browser/releases/download/v1.0.0/SHA256SUMS">Verify with SHA256SUMS</a>
       </div>
     </section>
 
     <section class="section cta">
       <h2>Ready to make the web feel lighter?</h2>
-      <a class="btn btn-primary" href="https://github.com/khaledwalid201724-collab/aether-browser/releases/download/v1.0.0/Aether-x86_64.AppImage" download>Download Aether — free</a>
+      <a class="btn btn-primary" href="downloads/">Download Aether — free</a>
     </section>
   </main>
 

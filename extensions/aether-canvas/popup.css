@@ -1,0 +1,16 @@
+:root { color-scheme: dark; }
+* { box-sizing:border-box; }
+body { width:270px; margin:0; padding:14px; font:13px/1.4 system-ui,sans-serif; color:#eef0ff; background:#171926; }
+header { display:flex; gap:11px; align-items:center; margin-bottom:14px; }
+header img { width:34px; height:34px; border-radius:10px; }
+h1 { margin:0; font-size:14px; }
+header p { margin:2px 0 0; color:#9aa0c0; font-size:11px; }
+button {
+  width:100%; display:flex; align-items:center; gap:10px; text-align:left;
+  margin-bottom:7px; padding:9px 10px; border-radius:10px; cursor:pointer;
+  border:1px solid #30344d; background:#222538; color:#eef0ff; font:inherit;
+}
+button:hover { background:#2b3049; }
+button.on { border-color:#8b7cff; background:linear-gradient(120deg,rgba(139,124,255,.3),rgba(34,211,238,.2)); }
+button .i { width:22px; text-align:center; font-size:15px; }
+button small { display:block; color:#9298b8; font-size:10px; }

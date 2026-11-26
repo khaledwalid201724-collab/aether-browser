@@ -1,0 +1,31 @@
+# One Chromium switch per line. Lines starting with # are ignored.
+# Aether's AppRun reads this copy at launch; rebuild after editing this file.
+
+# --- Window identity (taskbar / window icon) -------------------------------
+--class=Aether
+
+# --- Privacy / background noise -------------------------------------------
+--disable-background-networking
+--disable-client-side-phishing-detection
+--disable-component-extensions-with-background-pages
+--disable-component-update
+--disable-default-apps
+--disable-domain-reliability
+--disable-sync
+--metrics-recording-only
+--no-default-browser-check
+--no-first-run
+--no-pings
+--password-store=basic
+--disable-breakpad
+--disable-crash-reporter
+--disable-hang-monitor
+
+# --- Memory / performance -------------------------------------------------
+--renderer-process-limit=4
+--disk-cache-size=104857600
+--media-cache-size=52428800
+--disable-features=Translate,MediaRouter,OptimizationHints,AutofillServerCommunication,InterestFeedContentSuggestions,CalculateNativeWinOcclusion,DisableLoadExtensionCommandLineSwitch
+
+# --- Bundled local extensions ---------------------------------------------
+--enable-unsafe-extension-debugging

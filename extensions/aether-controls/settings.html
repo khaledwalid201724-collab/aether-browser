@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Aether Settings</title>
+  <link rel="icon" href="icon.png">
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <div class="aurora aurora-a"></div>
+  <div class="aurora aurora-b"></div>
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark"><img src="icon.png" alt="" width="26" height="26"></div>
+      <div><strong>Aether</strong><span>settings</span></div>
+    </div>
+
+    <nav>
+      <div class="nav-label">Browser</div>
+      <button class="nav-item active" data-panel="appearance"><span class="ni">◈</span>Appearance</button>
+      <button class="nav-item" data-panel="privacy"><span class="ni">◇</span>Privacy &amp; safety</button>
+      <button class="nav-item" data-panel="search"><span class="ni">⌕</span>Search engine</button>
+      <button class="nav-item" data-panel="shortcuts"><span class="ni">⌘</span>Keyboard shortcuts</button>
+      <div class="nav-label">Aether</div>
+      <button class="nav-item" data-panel="store"><span class="ni">✦</span>Aether Store</button>
+      <button class="nav-item" data-panel="about"><span class="ni">ⓘ</span>About</button>
+    </nav>
+
+    <div class="side-foot">
+      <button id="advancedBtn" class="side-link">Advanced Chromium settings ↗</button>
+      <span id="versionLabel">Aether · v1.0</span>
+    </div>
+  </aside>
+
+  <main class="content">
+    <header class="page-head">
+      <div>
+        <div class="eyebrow">MAKE IT YOURS</div>
+        <h1 id="pageTitle">Appearance</h1>
+        <p id="pageSub">Shape the way Aether looks and feels.</p>
+      </div>
+      <div class="head-actions">
+        <button class="ghost" id="homeBtn">⌂ Open Aether</button>
+        <button class="primary" id="storeBtn">✦ Aether Store</button>
+      </div>
+    </header>
+
+    <!-- APPEARANCE -->
+    <section class="panel active" id="panel-appearance">
+      <div class="card wide">
+        <div class="card-head">
+          <div><h2>Browser theme</h2><p>Colours and textures for tabs, toolbar and the address bar. Saved instantly, applied on your next launch.</p></div>
+          <span class="pill" id="themeStatus">Detecting…</span>
+        </div>
+        <div class="theme-grid" id="themeGrid"></div>
+        <p class="note">Your pick is saved and applied the next time you open Aether. <code>theme=</code> in <code>aether.conf</code> is the fallback.</p>
+      </div>
+
+      <div class="card wide">
+        <div class="card-head"><div><h2>Start page</h2><p>Choose the dashboard you see on launch and new tabs.</p></div></div>
+        <div class="segmented" id="pageSeg">
+          <button data-v="modern">Modern dashboard</button>
+          <button data-v="classic">Classic</button>
+        </div>
+        <p class="note">Saved here and applied at the next launch. <code>startpage=</code> in <code>aether.conf</code> is the fallback.</p>
+      </div>
+
+      <div class="card wide">
+        <div class="card-head"><div><h2>Interface details</h2><p>Small touches that make Aether feel calm.</p></div></div>
+        <div class="setting-row">
+          <div><strong>Ambient glow</strong><span>Soft background light on the Aether start page.</span></div>
+          <button class="switch" id="ambientSwitch" aria-label="Ambient glow"></button>
+        </div>
+        <div class="setting-row">
+          <div><strong>Motion</strong><span>Animated gradients and transitions.</span></div>
+          <button class="switch" id="motionSwitch" aria-label="Motion"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACY -->
+    <section class="panel" id="panel-privacy">
+      <div class="card wide">
+        <div class="card-head">
+          <div><h2>Built-in protection</h2><p>Every Aether feature is a small, auditable extension. Switch them off without restarting.</p></div>
+          <span class="pill" id="privacyStatus">—</span>
+        </div>
+        <div id="featureList" class="feature-list"></div>
+        <p class="note">Switches last for this session. Startup defaults come from <code>~/.config/aether/aether.conf</code>.</p>
+      </div>
+      <div class="card wide accent-card">
+        <div class="card-head"><div><h2>Privacy by default</h2><p>Aether ships with background networking, metrics, sync and component updates disabled.</p></div></div>
+        <div class="check-grid">
+          <div>✓ No telemetry</div><div>✓ No sign-in required</div><div>✓ Local-only settings</div>
+          <div>✓ Tracker rules included</div><div>✓ No cloud sync</div><div>✓ Read-only system</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH -->
+    <section class="panel" id="panel-search">
+      <div class="card wide">
+        <div class="card-head"><div><h2>Default search</h2><p>Used by the Aether start page and the Spotlight command palette.</p></div></div>
+        <div class="engine-grid" id="engineGrid"></div>
+      </div>
+      <div class="card wide">
+        <div class="card-head"><div><h2>Website address</h2><p>Where the Aether Store's “Website” button takes you.</p></div></div>
+        <div class="input-row">
+          <input id="siteInput" type="url" spellcheck="false" placeholder="https://khaledwalid201724-collab.github.io/aether-browser/">
+          <button class="primary" id="siteSave">Save</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHORTCUTS -->
+    <section class="panel" id="panel-shortcuts">
+      <div class="card wide">
+        <div class="card-head"><div><h2>Keyboard shortcuts</h2><p>Everything important, without touching the mouse.</p></div></div>
+        <div class="shortcut-grid">
+          <div><span>New tab (Aether dashboard)</span><kbd>Ctrl</kbd><kbd>T</kbd></div>
+          <div><span>Command palette / search</span><kbd>Alt</kbd><kbd>Shift</kbd><kbd>K</kbd></div>
+          <div><span>Aether Store</span><kbd>Alt</kbd><kbd>Shift</kbd><kbd>E</kbd></div>
+          <div><span>Aether Settings</span><kbd>Alt</kbd><kbd>Shift</kbd><kbd>S</kbd></div>
+          <div><span>Aether home</span><kbd>Alt</kbd><kbd>Shift</kbd><kbd>H</kbd></div>
+          <div><span>Toggle ad blocking</span><kbd>Alt</kbd><kbd>Shift</kbd><kbd>A</kbd></div>
+          <div><span>Vertical tabs</span><kbd>Alt</kbd><kbd>Shift</kbd><kbd>V</kbd></div>
+          <div><span>Incognito window</span><kbd>Alt</kbd><kbd>Shift</kbd><kbd>I</kbd></div>
+          <div><span>Focus search on the dashboard</span><kbd>/</kbd></div>
+          <div><span>Open the command palette</span><kbd>Ctrl</kbd><kbd>K</kbd></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORE -->
+    <section class="panel" id="panel-store">
+      <div class="card wide hero-card">
+        <div class="hero-icon">✦</div>
+        <h2>Aether Store</h2>
+        <p>Five small first-party extensions, ready to enable or disable. No account, no downloads, no tracking.</p>
+        <div class="hero-actions">
+          <button class="primary" id="openStore">Open the store →</button>
+          <button class="ghost" id="openExt">Manage extensions ↗</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="panel" id="panel-about">
+      <div class="card wide hero-card">
+        <img class="about-logo" src="icon.png" alt="Aether logo" width="72" height="72">
+        <h2>Aether</h2>
+        <p>A clean, modern, privacy-minded Chromium distribution. One AppImage, six small extensions, no root required.</p>
+        <div class="about-meta">
+          <span id="aboutBrowser">Browser: Aether</span>
+          <span>Profile: <code>~/.config/aether/</code></span>
+          <span>Made for people who want a quieter web.</span>
+        </div>
+        <div class="hero-actions">
+          <button class="primary" id="aboutSite">Visit the website ↗</button>
+          <button class="ghost" id="aboutAdvanced">Advanced Chromium settings ↗</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="settings.js"></script>
+</body>
+</html>

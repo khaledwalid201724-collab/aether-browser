@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Aether Shield",
+  "version": "1.0.0",
+  "description": "Lightweight ad, tracker and social-widget blocking for Aether.",
+  "icons": { "48": "icon.png" },
+  "permissions": ["declarativeNetRequest", "storage", "commands"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png",
+    "default_title": "Aether Shield"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      { "id": "ads-a", "enabled": true, "path": "rulesets/ads-a.json" },
+      { "id": "ads-b", "enabled": true, "path": "rulesets/ads-b.json" },
+      { "id": "trackers", "enabled": true, "path": "rulesets/trackers.json" },
+      { "id": "social", "enabled": false, "path": "rulesets/social.json" }
+    ]
+  },
+  "commands": {
+    "toggle-ads": {
+      "suggested_key": { "default": "Alt+Shift+A" },
+      "description": "Toggle ad and tracker blocking"
+    }
+  }
+}

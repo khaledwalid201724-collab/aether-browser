@@ -1,7 +1,7 @@
 {
   "name": "Aether Browser",
   "short_name": "Aether",
-  "description": "Fast, private, low-RAM Chromium browser for Linux.",
+  "description": "Fast, private, low-RAM Chromium browser for Linux, Windows and Android.",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#080b11",

@@ -1,0 +1,39 @@
+[
+  {
+    "short_name": "DuckDuckGo",
+    "keyword": "ddg",
+    "url": "https://duckduckgo.com/?q={searchTerms}",
+    "suggest_url": "https://duckduckgo.com/ac/?q={searchTerms}&type=list",
+    "favicon_url": "https://duckduckgo.com/favicon.ico",
+    "is_active": 1
+  },
+  {
+    "short_name": "Brave Search",
+    "keyword": "brave",
+    "url": "https://search.brave.com/search?q={searchTerms}",
+    "suggest_url": "https://search.brave.com/api/suggest?q={searchTerms}",
+    "favicon_url": "https://search.brave.com/favicon.ico",
+    "is_active": 1
+  },
+  {
+    "short_name": "Startpage",
+    "keyword": "startpage",
+    "url": "https://www.startpage.com/sp/search?query={searchTerms}",
+    "favicon_url": "https://www.startpage.com/favicon.ico",
+    "is_active": 1
+  },
+  {
+    "short_name": "Wikipedia",
+    "keyword": "wiki",
+    "url": "https://en.wikipedia.org/w/index.php?search={searchTerms}",
+    "favicon_url": "https://en.wikipedia.org/favicon.ico",
+    "is_active": 1
+  },
+  {
+    "short_name": "GitHub",
+    "keyword": "gh",
+    "url": "https://github.com/search?q={searchTerms}",
+    "favicon_url": "https://github.com/favicon.ico",
+    "is_active": 1
+  }
+]

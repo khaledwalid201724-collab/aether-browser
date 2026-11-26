@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Aether Controls",
+  "version": "1.0.0",
+  "description": "Custom keyboard commands and quick actions for Aether.",
+  "icons": { "48": "icon.png" },
+  "permissions": ["tabs", "commands", "management", "storage"],
+  "background": { "service_worker": "background.js" },
+  "chrome_url_overrides": { "newtab": "home.html" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png",
+    "default_title": "Aether commands"
+  },
+  "commands": {
+    "incognito": {
+      "suggested_key": { "default": "Alt+Shift+I" },
+      "description": "Open an incognito window"
+    },
+    "open-settings": {
+      "suggested_key": { "default": "Alt+Shift+S" },
+      "description": "Open browser settings"
+    },
+    "open-home": {
+      "suggested_key": { "default": "Alt+Shift+H" },
+      "description": "Open the Aether start page"
+    },
+    "open-store": {
+      "suggested_key": { "default": "Alt+Shift+E" },
+      "description": "Open the Aether Store"
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "manifest_version": 3,
+  "name": "Aether Midnight",
+  "version": "1.0.0",
+  "description": "The Aether Midnight chrome theme for Aether.",
+  "icons": {
+    "48": "icon.png"
+  },
+  "theme": {
+    "colors": {
+      "frame": [
+        13,
+        18,
+        34
+      ],
+      "frame_inactive": [
+        10,
+        14,
+        27
+      ],
+      "toolbar": [
+        13,
+        18,
+        34
+      ],
+      "tab_background_text": [
+        150,
+        170,
+        210
+      ],
+      "tab_text": [
+        235,
+        242,
+        255
+      ],
+      "bookmark_text": [
+        170,
+        185,
+        220
+      ],
+      "omnibox_background": [
+        24,
+        32,
+        54
+      ],
+      "omnibox_text": [
+        235,
+        242,
+        255
+      ],
+      "button_background_hover": [
+        40,
+        66,
+        120
+      ],
+      "button_background_normal": [
+        24,
+        32,
+        54
+      ],
+      "toolbar_button_icon": [
+        170,
+        185,
+        220
+      ],
+      "tab_background_separator": [
+        30,
+        40,
+        64
+      ],
+      "control_track": [
+        30,
+        40,
+        64
+      ],
+      "control_thumb": [
+        96,
+        165,
+        250
+      ]
+    },
+    "images": {
+      "theme_frame": "frame.png",
+      "theme_toolbar": "toolbar.png",
+      "theme_tab_background": "tab.png",
+      "theme_button_background": "button.png"
+    }
+  }
+}

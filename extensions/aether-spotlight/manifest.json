@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Aether Spotlight",
+  "version": "1.0.0",
+  "description": "A keyboard command palette for Aether.",
+  "icons": { "48": "icon.png" },
+  "permissions": ["tabs", "commands"],
+  "background": { "service_worker": "background.js" },
+  "commands": {
+    "open-palette": {
+      "suggested_key": { "default": "Alt+Shift+K" },
+      "description": "Open the Aether command palette"
+    }
+  }
+}

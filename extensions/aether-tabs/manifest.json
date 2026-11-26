@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Aether Vertical Tabs",
+  "version": "1.0.0",
+  "description": "A tidy side-panel tab manager for Aether.",
+  "icons": { "48": "icon.png" },
+  "permissions": ["tabs", "sidePanel", "storage", "commands"],
+  "background": { "service_worker": "background.js" },
+  "side_panel": { "default_path": "sidepanel.html" },
+  "action": {
+    "default_title": "Toggle vertical tabs",
+    "default_icon": "icon.png"
+  },
+  "commands": {
+    "toggle-vertical-tabs": {
+      "suggested_key": { "default": "Alt+Shift+V" },
+      "description": "Toggle vertical tabs"
+    }
+  }
+}

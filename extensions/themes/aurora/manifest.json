@@ -1,0 +1,89 @@
+{
+  "manifest_version": 3,
+  "name": "Aether Aurora",
+  "version": "1.0.0",
+  "description": "The Aether Aurora chrome theme for Aether.",
+  "icons": {
+    "48": "icon.png"
+  },
+  "theme": {
+    "colors": {
+      "frame": [
+        27,
+        29,
+        44
+      ],
+      "frame_inactive": [
+        22,
+        24,
+        37
+      ],
+      "toolbar": [
+        27,
+        29,
+        44
+      ],
+      "tab_background_text": [
+        178,
+        184,
+        214
+      ],
+      "tab_text": [
+        244,
+        246,
+        255
+      ],
+      "bookmark_text": [
+        190,
+        195,
+        222
+      ],
+      "omnibox_background": [
+        40,
+        43,
+        63
+      ],
+      "omnibox_text": [
+        240,
+        243,
+        255
+      ],
+      "button_background_hover": [
+        91,
+        80,
+        180
+      ],
+      "button_background_normal": [
+        45,
+        47,
+        70
+      ],
+      "toolbar_button_icon": [
+        190,
+        195,
+        222
+      ],
+      "tab_background_separator": [
+        43,
+        46,
+        67
+      ],
+      "control_track": [
+        43,
+        46,
+        67
+      ],
+      "control_thumb": [
+        139,
+        124,
+        255
+      ]
+    },
+    "images": {
+      "theme_frame": "frame.png",
+      "theme_toolbar": "toolbar.png",
+      "theme_tab_background": "tab.png",
+      "theme_button_background": "button.png"
+    }
+  }
+}

@@ -3,8 +3,8 @@
 document.querySelectorAll("[href^='downloads/']").forEach((link) => {
   link.addEventListener("click", () => {
     // Give the user a hint if they open a placeholder download locally.
-    if (location.protocol === "file:" && link.getAttribute("href").endsWith(".AppImage")) {
-      console.info("Aether: run site/serve.sh to place the AppImage in downloads/ first.");
+    if (location.protocol === "file:" && /\.(AppImage|zip|exe)$/i.test(link.getAttribute("href"))) {
+      console.info("Aether: run site/serve.sh to place local download files in downloads/ first.");
     }
   });
 });

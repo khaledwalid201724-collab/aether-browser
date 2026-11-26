@@ -1,0 +1,89 @@
+{
+  "manifest_version": 3,
+  "name": "Aether Rose",
+  "version": "1.0.0",
+  "description": "The Aether Rose chrome theme for Aether.",
+  "icons": {
+    "48": "icon.png"
+  },
+  "theme": {
+    "colors": {
+      "frame": [
+        38,
+        22,
+        32
+      ],
+      "frame_inactive": [
+        30,
+        18,
+        26
+      ],
+      "toolbar": [
+        38,
+        22,
+        32
+      ],
+      "tab_background_text": [
+        206,
+        168,
+        190
+      ],
+      "tab_text": [
+        255,
+        237,
+        246
+      ],
+      "bookmark_text": [
+        220,
+        182,
+        204
+      ],
+      "omnibox_background": [
+        58,
+        32,
+        48
+      ],
+      "omnibox_text": [
+        255,
+        237,
+        246
+      ],
+      "button_background_hover": [
+        112,
+        48,
+        78
+      ],
+      "button_background_normal": [
+        58,
+        32,
+        48
+      ],
+      "toolbar_button_icon": [
+        220,
+        182,
+        204
+      ],
+      "tab_background_separator": [
+        58,
+        32,
+        48
+      ],
+      "control_track": [
+        58,
+        32,
+        48
+      ],
+      "control_thumb": [
+        251,
+        113,
+        133
+      ]
+    },
+    "images": {
+      "theme_frame": "frame.png",
+      "theme_toolbar": "toolbar.png",
+      "theme_tab_background": "tab.png",
+      "theme_button_background": "button.png"
+    }
+  }
+}

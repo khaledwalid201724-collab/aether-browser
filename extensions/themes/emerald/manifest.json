@@ -1,0 +1,89 @@
+{
+  "manifest_version": 3,
+  "name": "Aether Emerald",
+  "version": "1.0.0",
+  "description": "The Aether Emerald chrome theme for Aether.",
+  "icons": {
+    "48": "icon.png"
+  },
+  "theme": {
+    "colors": {
+      "frame": [
+        16,
+        32,
+        30
+      ],
+      "frame_inactive": [
+        12,
+        26,
+        24
+      ],
+      "toolbar": [
+        16,
+        32,
+        30
+      ],
+      "tab_background_text": [
+        158,
+        198,
+        184
+      ],
+      "tab_text": [
+        234,
+        250,
+        242
+      ],
+      "bookmark_text": [
+        178,
+        212,
+        198
+      ],
+      "omnibox_background": [
+        24,
+        48,
+        44
+      ],
+      "omnibox_text": [
+        234,
+        250,
+        242
+      ],
+      "button_background_hover": [
+        28,
+        78,
+        68
+      ],
+      "button_background_normal": [
+        24,
+        48,
+        44
+      ],
+      "toolbar_button_icon": [
+        178,
+        212,
+        198
+      ],
+      "tab_background_separator": [
+        26,
+        52,
+        47
+      ],
+      "control_track": [
+        26,
+        52,
+        47
+      ],
+      "control_thumb": [
+        52,
+        211,
+        153
+      ]
+    },
+    "images": {
+      "theme_frame": "frame.png",
+      "theme_toolbar": "toolbar.png",
+      "theme_tab_background": "tab.png",
+      "theme_button_background": "button.png"
+    }
+  }
+}

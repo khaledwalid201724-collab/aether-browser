@@ -1,26 +1,29 @@
 #!/usr/bin/env bash
 # Prepare the Aether website locally and serve it.
-# Usage: ./site/serve.sh [port]      (default: 8000)
+# Usage: ./serve.sh [port]      (default: 8000)
 set -euo pipefail
 
-SITE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT="$(cd "$SITE/.." && pwd)"
-DL="$SITE/downloads"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DL="$ROOT/downloads"
 PORT="${1:-${PORT:-8000}}"
 
 mkdir -p "$DL/extensions"
 
 echo "==> Writing SHA256SUMS"
 (
-  cd "$ROOT/dist"
-  sha256sum Aether-x86_64.AppImage Aether-Android-universal.apk > "$DL/SHA256SUMS"
+  cd "$ROOT/dist" 2>/dev/null || exit 0
+  files=(Aether-x86_64.AppImage)
+  for extra in Aether-Windows-x86_64.zip Aether-Windows-x86_64-setup.exe Aether-Android-universal.apk; do
+    [[ -f "$extra" ]] && files+=("$extra")
+  done
+  ((${#files[@]} > 0)) && sha256sum "${files[@]}" > "$DL/SHA256SUMS"
 )
 
 echo "==> Packing extension ZIPs"
 ROOT="$ROOT" python3 - <<'PY'
 import os, pathlib, zipfile
 root = pathlib.Path(os.environ['ROOT'])
-out = root / 'site/downloads/extensions'
+out = root / 'downloads/extensions'
 for src in sorted((root / 'extensions').iterdir()):
     if not src.is_dir() or not (src / 'manifest.json').exists():
         continue
@@ -35,4 +38,4 @@ PY
 echo
 echo "Aether website → http://localhost:$PORT/"
 echo "Press Ctrl+C to stop."
-python3 -m http.server "$PORT" --directory "$SITE"
+python3 -m http.server "$PORT" --directory "$ROOT"

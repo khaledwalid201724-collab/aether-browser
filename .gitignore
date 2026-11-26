@@ -1,3 +1,5 @@
-# GitHub cannot store files over 100 MB. The AppImage is published as a
-# Release asset instead; keep the local copy out of the Pages repo.
+# GitHub cannot store files over 100 MB. Large binaries are published as
+# Release assets instead; keep local copies out of the Pages repo.
 /downloads/Aether-x86_64.AppImage
+/downloads/Aether-Windows-x86_64.zip
+/downloads/Aether-Windows-x86_64-setup.exe

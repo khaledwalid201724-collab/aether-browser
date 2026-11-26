@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aether · a quieter web</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --ink: #eef0ff;
+    --muted: #9aa1c6;
+    --violet: #6d5ef8;
+    --cyan: #22d3ee;
+    --glass: rgba(255,255,255,.055);
+    --line: rgba(255,255,255,.12);
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: #0d0f1a;
+    overflow: hidden;
+  }
+  .bg { position: fixed; inset: 0; overflow: hidden; z-index: 0; }
+  .bg::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(900px 600px at 12% -10%, rgba(109,94,248,.30), transparent 70%),
+      radial-gradient(800px 620px at 92% 8%, rgba(34,211,238,.20), transparent 70%),
+      radial-gradient(700px 700px at 50% 120%, rgba(109,94,248,.18), transparent 70%);
+  }
+  .orb { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .28; animation: drift 26s ease-in-out infinite alternate; }
+  .orb.a { width: 340px; height: 340px; background: #6d5ef8; top: -80px; left: 8%; }
+  .orb.b { width: 300px; height: 300px; background: #22d3ee; bottom: -90px; right: 10%; animation-delay: -9s; }
+  @keyframes drift { to { transform: translate3d(90px, 60px, 0) scale(1.12); } }
+
+  .wrap { position: relative; z-index: 1; height: 100%; display: grid; place-items: center; padding: 32px; }
+  .card { width: min(720px, 100%); }
+
+  .brand { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 26px; }
+  .logo {
+    width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center;
+    background: linear-gradient(140deg, var(--violet), var(--cyan));
+    box-shadow: 0 10px 35px rgba(109,94,248,.4); font-weight: 800; font-size: 22px;
+  }
+  .brand h1 { margin: 0; font-size: 20px; letter-spacing: .6px; font-weight: 650; }
+  .brand span { color: var(--muted); font-size: 12px; display: block; letter-spacing: 2.4px; text-transform: uppercase; }
+
+  .greeting { text-align: center; margin-bottom: 22px; }
+  .greeting .clock { font-size: 58px; font-weight: 250; letter-spacing: -2px; line-height: 1; }
+  .greeting .day { margin-top: 8px; color: var(--muted); font-size: 14px; letter-spacing: .4px; }
+
+  form {
+    display: flex; align-items: center; gap: 10px; padding: 8px 8px 8px 18px;
+    background: var(--glass); border: 1px solid var(--line); border-radius: 18px;
+    backdrop-filter: blur(24px); box-shadow: 0 24px 60px rgba(0,0,0,.35);
+  }
+  form:focus-within { border-color: rgba(109,94,248,.75); box-shadow: 0 24px 60px rgba(0,0,0,.4), 0 0 0 4px rgba(109,94,248,.12); }
+  form input { flex: 1; border: 0; outline: 0; background: transparent; color: var(--ink); font: 16px inherit; padding: 10px 0; }
+  form input::placeholder { color: #7f86a8; }
+  form button {
+    border: 0; border-radius: 12px; padding: 11px 18px; cursor: pointer;
+    background: linear-gradient(120deg, var(--violet), var(--cyan)); color: white; font-weight: 650; font-size: 13px;
+  }
+
+  .links { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 22px; }
+  .link {
+    display: flex; align-items: center; gap: 10px; padding: 12px;
+    text-decoration: none; color: var(--ink); font-size: 13px;
+    background: var(--glass); border: 1px solid var(--line); border-radius: 14px;
+    backdrop-filter: blur(16px); transition: transform .16s, background .16s, border-color .16s;
+  }
+  .link:hover { transform: translateY(-2px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.24); }
+  .link .emoji { font-size: 18px; width: 26px; text-align: center; }
+
+  .foot { display: flex; justify-content: space-between; margin-top: 26px; color: #7f86a8; font-size: 11px; letter-spacing: .2px; }
+  kbd { background: rgba(255,255,255,.08); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; font-size: 10px; }
+  @media (max-width: 640px) { .links { grid-template-columns: repeat(2, 1fr); } .greeting .clock { font-size: 44px; } }
+</style>
+</head>
+<body>
+  <div class="bg"><div class="orb a"></div><div class="orb b"></div></div>
+  <div class="wrap"><div class="card">
+    <div class="brand">
+      <div class="logo">A</div>
+      <div><h1>Aether</h1><span>a quieter web</span></div>
+    </div>
+
+    <div class="greeting">
+      <div class="clock" id="clock">00:00</div>
+      <div class="day" id="day">—</div>
+    </div>
+
+    <form action="https://duckduckgo.com/" method="get">
+      <input id="q" name="q" type="search" placeholder="Search privately with DuckDuckGo…" autocomplete="off" autofocus>
+      <button type="submit">Search</button>
+    </form>
+
+    <nav class="links">
+      <a class="link" href="https://github.com"><span class="emoji">⌘</span>GitHub</a>
+      <a class="link" href="https://youtube.com"><span class="emoji">▶</span>YouTube</a>
+      <a class="link" href="https://wikipedia.org"><span class="emoji">📖</span>Wikipedia</a>
+      <a class="link" href="https://reddit.com"><span class="emoji">◉</span>Reddit</a>
+      <a class="link" href="https://mail.google.com"><span class="emoji">✉</span>Mail</a>
+      <a class="link" href="https://duckduckgo.com"><span class="emoji">🔍</span>DuckDuckGo</a>
+      <a class="link" href="https://news.ycombinator.com"><span class="emoji">▲</span>Hacker News</a>
+      <a class="link" href="chrome://settings"><span class="emoji">⚙</span>Settings</a>
+    </nav>
+
+    <div class="foot">
+      <span>Type <kbd>ddg</kbd>, <kbd>wiki</kbd> or <kbd>gh</kbd> in the address bar to search</span>
+      <span><kbd>/</kbd> to focus · <kbd>Alt+Shift+V</kbd> vertical tabs</span>
+    </div>
+  </div></div>
+
+<script>
+  const clock = document.getElementById("clock");
+  const day = document.getElementById("day");
+  function tick() {
+    const now = new Date();
+    clock.textContent = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    const hour = now.getHours();
+    const hello = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
+    day.textContent = hello + " · " + now.toLocaleDateString([], { weekday: "long", month: "long", day: "numeric" });
+  }
+  tick(); setInterval(tick, 15000);
+  addEventListener("keydown", (event) => {
+    if (event.key === "/" && document.activeElement !== document.getElementById("q")) {
+      event.preventDefault(); document.getElementById("q").focus();
+    }
+  });
+</script>
+</body>
+</html>

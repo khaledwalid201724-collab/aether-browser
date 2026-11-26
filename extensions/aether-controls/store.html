@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Aether Store — extensions made for Aether</title>
+  <link rel="icon" href="icon.png">
+  <link rel="stylesheet" href="store.css">
+</head>
+<body>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <img src="icon.png" alt="" width="28" height="28">
+      <span>Aether <b>Store</b></span>
+    </div>
+    <div class="top-actions">
+      <button class="ghost" id="siteBtn">🌐 Website</button>
+      <button class="ghost" id="extBtn">🧩 Manage extensions</button>
+      <button class="primary" id="homeBtn">Open Aether</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="badge">BUILT FOR AETHER</div>
+      <h1>Make Aether <em>yours.</em></h1>
+      <p>Small, fast extensions that respect your privacy and your RAM.
+         Everything here is free, open and reviewed by the Aether project.</p>
+      <div class="hero-stats">
+        <div><strong id="installedCount">—</strong><span>installed</span></div>
+        <div><strong id="availableCount">5</strong><span>available</span></div>
+        <div><strong>0</strong><span>trackers</span></div>
+      </div>
+    </section>
+
+    <section class="filters">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="privacy">Privacy</button>
+      <button class="chip" data-filter="productivity">Productivity</button>
+      <button class="chip" data-filter="appearance">Appearance</button>
+      <div class="search-wrap">
+        <input id="search" type="search" placeholder="Search extensions…" autocomplete="off">
+      </div>
+    </section>
+
+    <section id="grid" class="grid" aria-live="polite"></section>
+
+    <section class="more">
+      <div>
+        <h2>Looking for something else?</h2>
+        <p>Download community extensions or grab the Aether AppImage from the website.</p>
+      </div>
+      <button class="primary" id="moreBtn">Visit the Aether website →</button>
+    </section>
+  </main>
+
+  <footer>
+    <span>Aether Store · local, private, dependency-free</span>
+    <span>Shortcut: <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd></span>
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="store.js"></script>
+</body>
+</html>
