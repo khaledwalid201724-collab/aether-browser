@@ -110,6 +110,12 @@ SCRIPT_WIN="$(win_path "$ROOT/scripts/aether-installer.nsi")"
 NSIS_ARGS=("/DAPPROOT=$APPROOT_WIN" "/DOUTFILE=$OUTFILE_WIN")
 if command -v makensis >/dev/null 2>&1; then
   makensis "${NSIS_ARGS[@]}" "$ROOT/scripts/aether-installer.nsi"
+elif [[ -n "${NSIS_DIR:-}" && -f "$NSIS_DIR/makensis.exe" ]]; then
+  "$NSIS_DIR/makensis.exe" "${NSIS_ARGS[@]}" "$SCRIPT_WIN"
+elif [[ -f "/c/Program Files (x86)/NSIS/makensis.exe" ]]; then
+  "/c/Program Files (x86)/NSIS/makensis.exe" "${NSIS_ARGS[@]}" "$SCRIPT_WIN"
+elif [[ -f "/c/Program Files/NSIS/makensis.exe" ]]; then
+  "/c/Program Files/NSIS/makensis.exe" "${NSIS_ARGS[@]}" "$SCRIPT_WIN"
 elif command -v wine >/dev/null 2>&1 && [[ -n "${NSIS_DIR:-}" ]]; then
   wine "$NSIS_DIR/makensis.exe" "${NSIS_ARGS[@]}" "$SCRIPT_WIN"
 else
