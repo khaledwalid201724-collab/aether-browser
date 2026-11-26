@@ -50,6 +50,7 @@ merge_libs() {
 }
 
 echo "Merging native libraries..."
+merge_libs "$ARM_APK" armeabi-v7a
 merge_libs "$ARM64_APK" arm64-v8a
 merge_libs "$X64_APK" x86_64
 
