@@ -1,0 +1,66 @@
+name: Build and publish Aether Windows
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    env:
+      REPO: khaledwalid201724-collab/aether-browser
+      TAG: v1.0.0
+      REVISION: 1755237
+      VERSION: 160.0.8185.0
+      PYTHON: python
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install build tools
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install Pillow
+          choco install 7zip nsis --no-progress -y
+
+      - name: Build branded Windows browser
+        shell: bash
+        run: bash scripts/build-windows.sh
+
+      - name: Generate checksums
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -v 'Aether-Windows-' downloads/SHA256SUMS > /tmp/sums-base || true
+          (cd dist && sha256sum Aether-Windows-x86_64.zip Aether-Windows-x86_64-setup.exe > /tmp/win-sums)
+          cat /tmp/sums-base /tmp/win-sums > downloads/SHA256SUMS
+          cat downloads/SHA256SUMS
+
+      - name: Upload release assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release upload "$TAG" \
+            dist/Aether-Windows-x86_64.zip \
+            dist/Aether-Windows-x86_64-setup.exe \
+            downloads/SHA256SUMS \
+            --repo "$REPO" --clobber
+
+      - name: Update website checksums
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Aether Project"
+          git config user.email "noreply@aether-browser.com"
+          git add downloads/SHA256SUMS
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Windows build checksums"
+            git push
+          fi
