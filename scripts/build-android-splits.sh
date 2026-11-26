@@ -11,7 +11,7 @@ fi
 UNIVERSAL="$1"
 TOOLS="$2"
 OUT_DIR="$3"
-WORK="$(mktemp -d /tmp/opencode/aether-android-splits.XXXXXX)"
+WORK="$(mktemp -d "${TMPDIR:-/tmp}/aether-android-splits.XXXXXX")"
 trap 'rm -rf "$WORK"' EXIT
 mkdir -p "$OUT_DIR"
 

@@ -18,7 +18,7 @@ ARM64_APK="$2"
 X64_APK="$3"
 TOOLS="$4"
 OUT="$5"
-WORK="$(mktemp -d /tmp/opencode/aether-android-build.XXXXXX)"
+WORK="$(mktemp -d "${TMPDIR:-/tmp}/aether-android-build.XXXXXX")"
 trap 'rm -rf "$WORK"' EXIT
 
 mkdir -p "$WORK/arsc" "$WORK/manifest" "$WORK/icons" "$WORK/libs" "$WORK/final" "$(dirname "$OUT")"
