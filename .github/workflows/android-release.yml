@@ -1,0 +1,91 @@
+name: Build and publish Aether Android APKs
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      REPO: khaledwalid201724-collab/aether-browser
+      TAG: v1.0.0
+      BASE: https://commondatastorage.googleapis.com/chromium-browser-snapshots
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install build tools
+        run: |
+          set -euo pipefail
+          python3 -m pip install --user Pillow
+          curl -fsSL -o /tmp/build-tools.zip \
+            https://dl.google.com/android/repository/build-tools_r34-linux.zip
+          mkdir -p /tmp/android-tools
+          unzip -q /tmp/build-tools.zip -d /tmp/android-tools
+          TOOLS="$(dirname "$(find /tmp/android-tools -type f -name apksigner | head -1)")"
+          chmod +x "$TOOLS"/*
+          echo "TOOLS=$TOOLS" >> "$GITHUB_ENV"
+
+      - name: Download Chromium Android snapshots
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/snapshots /tmp/arm /tmp/arm64 /tmp/x64
+          curl -fsSL -o /tmp/snapshots/arm.zip "$BASE/Android/1755201/chrome-android.zip"
+          curl -fsSL -o /tmp/snapshots/arm64.zip "$BASE/Android_Arm64/1755212/chrome-android.zip"
+          curl -fsSL -o /tmp/snapshots/x64.zip "$BASE/AndroidDesktop_x64/1755198/chrome-android-desktop.zip"
+          unzip -q /tmp/snapshots/arm.zip -d /tmp/arm
+          unzip -q /tmp/snapshots/arm64.zip -d /tmp/arm64
+          unzip -q /tmp/snapshots/x64.zip -d /tmp/x64
+          ARM="$(find /tmp/arm -type f -name ChromePublic.apk | head -1)"
+          ARM64="$(find /tmp/arm64 -type f -name ChromePublic.apk | head -1)"
+          X64="$(find /tmp/x64 -type f -name ChromePublic.apk | head -1)"
+          test -n "$ARM" -a -n "$ARM64" -a -n "$X64"
+          echo "ARM=$ARM" >> "$GITHUB_ENV"
+          echo "ARM64=$ARM64" >> "$GITHUB_ENV"
+          echo "X64=$X64" >> "$GITHUB_ENV"
+
+      - name: Build branded APKs
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          bash scripts/build-android-universal.sh "$ARM" "$ARM64" "$X64" "$TOOLS" \
+            dist/Aether-Android-universal.apk
+          bash scripts/build-android-splits.sh dist/Aether-Android-universal.apk "$TOOLS" dist
+
+      - name: Generate checksums
+        run: |
+          set -euo pipefail
+          grep 'Aether-x86_64.AppImage' site/downloads/SHA256SUMS > /tmp/appimage-sum
+          (cd dist && sha256sum Aether-Android-*.apk > /tmp/apk-sums)
+          cat /tmp/appimage-sum /tmp/apk-sums > site/downloads/SHA256SUMS
+          cat site/downloads/SHA256SUMS
+
+      - name: Upload release assets
+        run: |
+          set -euo pipefail
+          gh release upload "$TAG" \
+            dist/Aether-Android-universal.apk \
+            dist/Aether-Android-armeabi-v7a.apk \
+            dist/Aether-Android-arm64.apk \
+            dist/Aether-Android-x86_64.apk \
+            site/downloads/SHA256SUMS \
+            --repo "$REPO" --clobber
+
+      - name: Update website checksums
+        run: |
+          set -euo pipefail
+          git config user.name "Aether Project"
+          git config user.email "noreply@aether-browser.com"
+          git add site/downloads/SHA256SUMS
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Android APK checksums"
+            git push
+          fi
